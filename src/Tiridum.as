@@ -35,10 +35,7 @@ package
 		
 		private function onClick(event:MouseEvent):void
 		{
-			if (!recording)
-				recorder.record();
-			else 
-				recorder.stop();
+			recording ? recorder.stop() : recorder.record();
 			
 			recording = !recording;
 		}
