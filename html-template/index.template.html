@@ -55,6 +55,28 @@
 			<!-- JavaScript enabled so display the flashContent div in case it is not replaced with a swf object. -->
 			swfobject.createCSS("#flashContent", "display:block;text-align:left;");
         </script>
+        
+        <script type="text/javascript" src="jquery-1.6.1.min.js"></script>
+        <script type="text/javascript">
+       		jQuery(function($){
+	        	var recorder = document.getElementById("${application}");
+	        	
+	        	$(".record").click(function(){
+	        		recorder.startRecording();
+	        		return false;
+	        	});
+	        	
+	        	$(".stop").click(function(){
+	        		recorder.stopRecording();
+	        		return false;
+	        	});
+	        	
+	        	$(".play").click(function(){
+	        		recorder.play();
+	        		return false;
+	        	});
+        	});
+        </script>
     </head>
     <body>
         <!-- SWFObject's dynamic embed method replaces this alternative HTML content with Flash content when enough 
@@ -101,5 +123,12 @@
                 <!--<![endif]-->
             </object>
 	    </noscript>		
+	    
+	    <form>
+	    	<button class="record">Record</button>
+	    	<button class="stop">Stop</button>
+	    	<button class="play">Play</button>
+	    </form>
+	    
    </body>
 </html>
